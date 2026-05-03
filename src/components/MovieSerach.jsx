@@ -10,7 +10,7 @@ const MovieSerach = () => {
         setLoading(true)
         setError(null)
         try {
-            const response = await fetch(`https://www.omdbapi.com/?s=${searchTerm}&apikey=963011b7`)
+            const response = await fetch(`https://www.omdbapi.com/?s=${searchTerm}&apikey=${import.meta.env.VITE_TMDB_API_KEY}`)
             const data = await response.json()
             if (data.Response === 'True') {
                 setMovies(data.Search)
